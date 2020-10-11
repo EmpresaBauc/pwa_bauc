@@ -1,0 +1,47 @@
+body{
+	background-color: #f2faff;
+	font-family: Bradley Hand, cursive;
+}
+
+h2{
+	font-family: Bradley Hand, cursive;
+}
+
+.voltar{
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.titulo{
+	text-align: center;
+}
+
+.inputs{
+	text-align: center;
+	margin: 10px 10px 10px 10px;
+	padding: 5px 4px 5px 4px;
+}
+
+.sub-inputs{
+	display: inline;
+	padding: 1px 1px 1px 1px;
+}
+
+.caixa{
+	display: inline-block;
+	max-width: 414px;
+	background-color: white;
+	padding: 15px 15px 5px 15px;
+	border: solid 1px gray;
+    border-radius:10px 10px 10px 10px;
+}
+
+.calcular{
+	font-family: Bradley Hand, cursive;
+	text-align: center;
+	width: 100px;
+	height: 50px;
+	background-color: #f8fcff;
+	border: solid 1px gray;
+    border-radius:10px 10px 10px 10px;
+}

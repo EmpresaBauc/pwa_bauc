@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>BauC - Pisos</title>
+
+	<link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles-pisos.css">
+
+</head>
+<body>
+  <div style="text-align: center;">
+    <h2 class="titulo">Pisos</h2>
+    <div class="caixa">
+      <div class="inputs">
+        <div class="sub-inputs">
+          <label>Lado 1 Área:</label>  
+        </div>
+        <div class="sub-inputs">
+          <input type="text" name="lado1area" id="lado1area"/>  
+        </div>
+      </div>
+      <div class="inputs">
+        <div class="sub-inputs">
+          <label>Lado 2 Área:</label>  
+        </div>
+        <div class="sub-inputs">
+          <input type="text" name="lado2area" id="lado2area"/>    
+        </div>
+      </div>
+      <div class="inputs">
+        <div class="sub-inputs">
+          <label>Tipo Piso:</label>  
+        </div>
+        <div class="sub-inputs">
+          <select name="tipoCeramica" id="tipoCeramica">
+            <option value="pc-30x30">Piso Cerâmico Esmaltado 30x30cm</option>
+            <option value="porc-40x40">Porcelanato Polido 40x40cm</option>
+          </select>  
+        </div>
+      </div>
+      <div class="inputs"  style="text-align: center;">
+        <div class="sub-inputs">
+           <button class="calcular" onclick="calculaPiso()">Calcular</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h4 class="titulo">Cálculo de Insumos</h4>
+      <div class="inputs">
+        <div class="sub-inputs">
+          <label>Quantidade de peças:</label>  
+        </div>
+        <div class="sub-inputs">
+          <label id="quantidadePisos">0</label>  
+        </div>        
+      </div>
+      <div class="inputs">
+        <div class="sub-inputs">
+          <label>Quantidade de argamassa:</label>  
+        </div>
+        <div class="sub-inputs">
+          <label id="quantidadeArgamassa">0</label>  
+        </div>            
+      </div>
+      <div class="inputs">
+        <div class="sub-inputs">
+          <a href="/index.html"><img class="voltar" src="./assets/voltar.png"/></a>
+        </div>    
+      </div>
+  </div>
+</body>
+<script>
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function () {
+        console.log('service worker registered');
+      })
+      .catch(function () {
+        console.warn('service worker failed');
+      });
+  }
+
+ 
+  function calculaPiso(){
+
+    var select = document.getElementById("tipoCeramica");
+    var ladoAreaX = document.getElementById("lado1area").value.replace(".","").replace(",",".");
+    var ladoAreaY = document.getElementById("lado2area").value.replace(".","").replace(",",".");
+    var ladosPiso = 0;
+    var areaPiso = 0;
+    var area = 0;
+    var quantidadePisos = 0;
+    var quantidadeArgamassa = 0;
+    var tipo = select.options[select.selectedIndex].value;
+
+    tipo = tipo.split("-");
+    console.log(tipo);
+    if(tipo[0]=="pc"){
+      ladosPiso = tipo[1].split("x");
+      areaPiso = parseFloat(ladosPiso[0])*parseFloat(ladosPiso[1]);
+      area = parseFloat(ladoAreaX)*parseFloat(ladoAreaY);
+      quantidadePisos = (area/areaPiso).toFixed(2);
+      //são 4 quilos de argamassa por metro quadrado ou seja 10000 cm2
+      quantidadeArgamassa = (area/10000)*4;
+
+      document.getElementById("quantidadePisos").innerHTML = quantidadePisos.replace(".",",")+" unidades";
+      document.getElementById("quantidadeArgamassa").innerHTML = String(quantidadeArgamassa).replace(".",",")+" kg";
+
+    }else if(tipo[0]=="porc"){
+      ladosPiso = tipo[1].split("x");
+      areaPiso = parseFloat(ladosPiso[0])*parseFloat(ladosPiso[1]);
+      area = parseFloat(ladoAreaX)*parseFloat(ladoAreaY);
+      quantidadePisos = (area/areaPiso).toFixed(2);
+      //são 4 quilos de argamassa por metro quadrado ou seja 10000 cm2
+      quantidadeArgamassa = (area/10000)*4;
+
+      document.getElementById("quantidadePisos").innerHTML = quantidadePisos.replace(".",",")+" unidades";
+      document.getElementById("quantidadeArgamassa").innerHTML = String(quantidadeArgamassa).replace(".",",")+" kg";
+
+    }
+    
+    
+
+  }
+
+
+</script>
+</html>

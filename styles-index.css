@@ -1,0 +1,33 @@
+body{
+	background-color: #f2faff;
+	font-family: Bradley Hand, cursive;
+}
+
+.logo{
+	background-image: url("logo.png");
+	max-width: 150px;
+	max-height: 150px;
+	background-repeat: no-repeat;
+
+}
+
+.index{
+	text-align: center;
+	margin-top: 60px;
+}
+
+.nomeLogo{
+	margin-top: 0px !important;
+}
+
+.botoesPrincipais{
+	font-family: Bradley Hand, cursive;
+	text-align: center;
+	margin-top: 50px;
+	width: 100px;
+	height: 50px;
+	background-color: #f8fcff;
+	border: solid 1px gray;
+    border-radius:10px 10px 10px 10px;
+
+}

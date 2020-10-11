@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>BauC</title>
+
+	<link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles-index.css">
+
+</head>
+<body>
+	<div class="index">
+    <img class="logo" src="./assets/logo.png"/>    <h4 class="nomeLogo">BauC</h4>
+    <button class="botoesPrincipais" onclick="location.href='/pisos.html'">Pisos</button>
+    <br>
+    <button class="botoesPrincipais" onclick="location.href='/pisos.html'">Pintura</button>
+    <br>
+    <button class="botoesPrincipais" onclick="location.href='/pisos.html'">Alvenaria</button>  
+	</div>
+</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function () {
+        console.log('service worker registered');
+      })
+      .catch(function () {
+        console.warn('service worker failed');
+      });
+  }
+</script>
+</html>
